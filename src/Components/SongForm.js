@@ -1,10 +1,11 @@
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { ContextData } from "../Provider/Provider";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 export default function SongForm() {
+  const { id } = useParams();
   const { setTrigger, trigger } = useContext(ContextData);
   const navigate = useNavigate();
 
@@ -15,6 +16,15 @@ export default function SongForm() {
     time: "",
     is_favorite: false,
   });
+
+  useEffect(() => {
+    if (id !== undefined) {
+      axios
+        .get(`${API}/songs/${id}`)
+        .then((res) => setSong(res.data))
+        .catch((error) => console.log(error));
+    }
+  }, [id]);
 
   const addSong = (newSong) => {
     axios
@@ -29,6 +39,16 @@ export default function SongForm() {
       .catch((c) => console.warn("catch", c));
   };
 
+  const updateSong = (updatedSong) => {
+    axios
+      .put(`${API}/songs/${id}`, updatedSong)
+      .then(() => {
+        navigate(`/songs/${id}`);
+        setTrigger(-trigger);
+      })
+      .catch((c) => console.warn("catch", c));
+  };
+
   const handleTextChange = (event) => {
     setSong({ ...song, [event.target.id]: event.target.value });
   };
@@ -39,7 +59,11 @@ export default function SongForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addSong(song);
+    if (!id) {
+      addSong(song);
+    } else {
+      updateSong(song);
+    }
   };
 
   return (
