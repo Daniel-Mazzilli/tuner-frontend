@@ -18,6 +18,7 @@ export default function RouteComponent() {
           <Route index element={<Index />} />
           <Route path=":id">
             <Route index element={<Show />} />
+            <Route path="edit" element={<Form />} />
           </Route>
           <Route path="new" element={<Form />} />
         </Route>
