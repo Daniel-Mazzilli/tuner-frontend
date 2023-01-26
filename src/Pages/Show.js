@@ -1,10 +1,10 @@
-import SongDetails from "../Components/SongDetails";
+import PlaylistDetails from "../Components/PlaylistDetails";
 
 export default function Show() {
   return (
     <div>
       <h3>details page</h3>
-      <SongDetails />
+      <PlaylistDetails />
     </div>
   );
 }

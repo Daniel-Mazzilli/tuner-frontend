@@ -7,19 +7,19 @@ const API = process.env.REACT_APP_API_URL;
 export const ContextData = createContext();
 
 function Provider({ children }) {
-  const [songs, setSongs] = useState([]);
+  const [playlists, setPlaylists] = useState([]);
   const [trigger, setTrigger] = useState(1);
 
   useEffect(() => {
     axios
-      .get(`${API}/songs`)
-      .then((res) => setSongs(res.data))
+      .get(`${API}/playlists`)
+      .then((res) => setPlaylists(res.data))
       .catch((c) => console.warn("catch", c));
   }, [trigger]);
 
   return (
     <div>
-      <ContextData.Provider value={{ songs, trigger, setTrigger }}>
+      <ContextData.Provider value={{ playlists, trigger, setTrigger }}>
         <Nav />
         {children}
       </ContextData.Provider>

@@ -4,18 +4,18 @@ import { ContextData } from "../Provider/Provider";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-export default function SongDetails() {
+export default function PlaylistDetails() {
   const { id } = useParams();
   const { setTrigger, trigger } = useContext(ContextData);
   const navigate = useNavigate();
   const [details, setDetails] = useState({});
 
-  const deleteSong = () => {
+  const deletePlaylist = () => {
     axios
-      .delete(`${API}/songs/${id}`)
+      .delete(`${API}/playlists/${id}`)
       .then(
         () => {
-          navigate("/songs");
+          navigate("/playlists");
           setTrigger(-trigger);
         },
         (error) => console.error(error)
@@ -24,28 +24,29 @@ export default function SongDetails() {
   };
 
   const handleDelete = () => {
-    deleteSong();
+    deletePlaylist();
   };
 
   useEffect(() => {
     axios
-      .get(`${API}/songs/${id}`)
+      .get(`${API}/playlists/${id}`)
       .then((res) => setDetails(res.data))
       .catch((c) => {
         console.warn("catch", c);
       });
   }, [id]);
 
+  const { creator, title, description, rating } = details;
+
   return (
     <div id="details">
-      <h3>Song Details id:{id}</h3>
+      <h3>Playlist Details id:{id}</h3>
       <p>
-        {details.name} by {details.artist} - album: {details.album} - time:{" "}
-        {details.time} - favorite: {String(details.is_favorite)}
+        {title} by {creator} - {description} - Rating: {rating}
       </p>
       <div className="buttons">
-        <Link to="/songs">Back</Link>
-        <Link to={`/songs/${id}/edit`}>Edit</Link>
+        <Link to="/playlists">Back</Link>
+        <Link to={`/playlists/${id}/edit`}>Edit</Link>
         <button onClick={handleDelete}>Delete</button>
       </div>
     </div>

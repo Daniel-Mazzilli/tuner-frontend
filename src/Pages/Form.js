@@ -1,5 +1,5 @@
-import SongForm from "../Components/SongForm";
+import PlaylistForm from "../Components/PlaylistForm";
 
 export default function Form() {
-  return <SongForm />;
+  return <PlaylistForm />;
 }

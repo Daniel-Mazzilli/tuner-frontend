@@ -14,7 +14,7 @@ export default function RouteComponent() {
     <Routes>
       <Route path="/">
         <Route index element={<Home />} />
-        <Route path="songs">
+        <Route path="playlists">
           <Route index element={<Index />} />
           <Route path=":id">
             <Route index element={<Show />} />

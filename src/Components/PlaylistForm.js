@@ -4,34 +4,33 @@ import { ContextData } from "../Provider/Provider";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-export default function SongForm() {
+export default function PlaylistForm() {
   const { id } = useParams();
   const { setTrigger, trigger } = useContext(ContextData);
   const navigate = useNavigate();
 
-  const [song, setSong] = useState({
-    name: "",
-    artist: "",
-    album: "",
-    time: "",
-    is_favorite: false,
+  const [playlist, setPlaylist] = useState({
+    title: "",
+    creator: "",
+    description: "",
+    rating: ""
   });
 
   useEffect(() => {
     if (id !== undefined) {
       axios
-        .get(`${API}/songs/${id}`)
-        .then((res) => setSong(res.data))
+        .get(`${API}/playlists/${id}`)
+        .then((res) => setPlaylist(res.data))
         .catch((error) => console.log(error));
     }
   }, [id]);
 
-  const addSong = (newSong) => {
+  const addPlaylist = (newPlaylist) => {
     axios
-      .post(`${API}/songs`, newSong)
+      .post(`${API}/playlists`, newPlaylist)
       .then(
         () => {
-          navigate(`/songs`);
+          navigate(`/playlists`);
           setTrigger(-trigger);
         },
         (error) => console.error(error)
@@ -39,76 +38,79 @@ export default function SongForm() {
       .catch((c) => console.warn("catch", c));
   };
 
-  const updateSong = (updatedSong) => {
+  const updatePlaylist = (updatedPlaylist) => {
     axios
-      .put(`${API}/songs/${id}`, updatedSong)
+      .put(`${API}/playlists/${id}`, updatedPlaylist)
       .then(() => {
-        navigate(`/songs/${id}`);
+        navigate(`/playlists/${id}`);
         setTrigger(-trigger);
       })
       .catch((c) => console.warn("catch", c));
   };
 
   const handleTextChange = (event) => {
-    setSong({ ...song, [event.target.id]: event.target.value });
+    setPlaylist({ ...playlist, [event.target.id]: event.target.value });
   };
 
-  const handleCheckboxChange = (event) => {
-    setSong({ ...song, is_favorite: !song.is_favorite });
-  };
+  // const handleCheckboxChange = (event) => {
+  //   setSong({ ...song, is_favorite: !song.is_favorite });
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!id) {
-      addSong(song);
+      addPlaylist(playlist);
     } else {
-      updateSong(song);
+      updatePlaylist(playlist);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
+      <label htmlFor="title">Title:</label>
       <input
-        id="name"
+        id="title"
         type="text"
-        value={song.name}
+        value={playlist.title}
         onChange={handleTextChange}
-        placeholder="name of song"
+        placeholder="title of playlist"
         required
       ></input>
-      <label htmlFor="artist">Artist:</label>
+      <label htmlFor="creator">Creator:</label>
       <input
-        id="artist"
+        id="creator"
         type="text"
-        value={song.artist}
+        value={playlist.creator}
         onChange={handleTextChange}
-        placeholder="name of artist"
+        placeholder="name of playlist creator"
         required
       ></input>
-      <label htmlFor="album">Album:</label>
+      <label htmlFor="description">Description:</label>
       <input
-        id="album"
+        id="description"
         type="text"
-        value={song.album}
+        value={playlist.description}
         onChange={handleTextChange}
-        placeholder="name of album"
+        placeholder="playlist description"
       ></input>
-      <label htmlFor="time">Length:</label>
+      <label htmlFor="rating">Rating:</label>
       <input
-        id="time"
-        type="text"
-        value={song.time}
+        id="rating"
+        type="number"
+        min="0"
+        max="5"
+        step="1"
+        value={playlist.rating}
         onChange={handleTextChange}
-        placeholder="length of song"
+        // placeholder="user rating"
       ></input>
-      <label htmlFor="is_favorite">Favorite:</label>
+      {/* <label htmlFor="is_favorite">Favorite:</label>
       <input
         id="is_favorite"
         type="checkbox"
         checked={song.is_favorite}
         onChange={handleCheckboxChange}
-      />
+      /> */}
       <input type="submit" />
     </form>
   );
