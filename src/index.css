@@ -55,7 +55,7 @@ nav a:hover {
 }
 
 #index-page ul {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -84,6 +84,7 @@ nav a:hover {
 
 #index-page button:hover {
     color: darkblue;
+    cursor: pointer;
 }
 
 form {
@@ -101,5 +102,10 @@ form #playlist-submit {
     border: none;
     font-weight: bold;
     font-size: 22px;
+    color: orchid;
+}
+
+form #playlist-submit:hover {
     color: darkblue;
+    cursor: pointer;
 }
