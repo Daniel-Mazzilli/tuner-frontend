@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { ContextData } from "../Provider/Provider";
 import axios from "axios";
+import Songs from "./Songs";
 const API = process.env.REACT_APP_API_URL;
 
 export default function PlaylistDetails() {
@@ -49,6 +50,7 @@ export default function PlaylistDetails() {
         <Link to={`/playlists/${id}/edit`}>Edit</Link>
         <button onClick={handleDelete}>Delete</button>
       </div>
+      <Songs />
     </div>
   );
 }

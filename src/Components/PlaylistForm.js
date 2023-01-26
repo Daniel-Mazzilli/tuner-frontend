@@ -52,10 +52,6 @@ export default function PlaylistForm() {
     setPlaylist({ ...playlist, [event.target.id]: event.target.value });
   };
 
-  // const handleCheckboxChange = (event) => {
-  //   setSong({ ...song, is_favorite: !song.is_favorite });
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!id) {
@@ -86,13 +82,13 @@ export default function PlaylistForm() {
         required
       ></input>
       <label htmlFor="description">Description:</label>
-      <input
+      <textarea
         id="description"
         type="text"
         value={playlist.description}
         onChange={handleTextChange}
         placeholder="playlist description"
-      ></input>
+      ></textarea>
       <label htmlFor="rating">Rating:</label>
       <input
         id="rating"
@@ -102,15 +98,7 @@ export default function PlaylistForm() {
         step="1"
         value={playlist.rating}
         onChange={handleTextChange}
-        // placeholder="user rating"
       ></input>
-      {/* <label htmlFor="is_favorite">Favorite:</label>
-      <input
-        id="is_favorite"
-        type="checkbox"
-        checked={song.is_favorite}
-        onChange={handleCheckboxChange}
-      /> */}
       <input type="submit" />
     </form>
   );
