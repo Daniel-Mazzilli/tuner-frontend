@@ -9,6 +9,9 @@ export default function Playlists() {
 
   return (
     <div id="playlists">
+      <button onClick={() => navigate("/playlists/new")}>
+        Create a playlist
+      </button>
       <ul>
         {playlists &&
           playlists.map((playlist) => (
@@ -17,9 +20,6 @@ export default function Playlists() {
             </li>
           ))}
       </ul>
-      <button onClick={() => navigate("/playlists/new")}>
-        Create a playlist
-      </button>
     </div>
   );
 }

@@ -99,7 +99,7 @@ export default function PlaylistForm() {
         value={playlist.rating}
         onChange={handleTextChange}
       ></input>
-      <input type="submit" />
+      <input type="submit" id="playlist-submit" />
     </form>
   );
 }

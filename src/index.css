@@ -1,3 +1,105 @@
 * {
-    margin: 0
+  margin: 0;
+  background-color: aliceblue;
+}
+
+nav,
+nav a {
+  background-color: orange;
+}
+
+nav {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: aliceblue;
+  font-size: 40px;
+  margin: 40px;
+}
+
+nav a:hover {
+  color: darkblue;
+}
+
+#home {
+  text-align: center;
+  padding-top: 40px;
+}
+
+#home h1 {
+  color: darkblue;
+  font-size: 60px;
+}
+
+#home p {
+  font-size: 30px;
+  color: rgb(27, 22, 22);
+}
+
+#index-page {
+  width: 60vw;
+  margin: 0 auto;
+}
+
+#index-page h2 {
+  color: darkblue;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 25px;
+  font-size: 56px;
+}
+
+#index-page ul {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#index-page ul li {
+  list-style: none;
+  line-height: 1.6;
+}
+
+#index-page ul li a {
+  text-decoration: none;
+  color: rgb(27, 22, 22);
+  font-size: 24px;
+}
+
+#index-page ul li a:hover {
+    text-transform: uppercase;
+    color: orange;
+}
+
+#index-page button {
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: orchid;
+}
+
+#index-page button:hover {
+    color: darkblue;
+}
+
+form {
+    padding-top: 40px;
+    display: grid;
+    width: 60vw;
+    margin: 0 auto;
+    font-size: 20px;
+    color: rgb(27, 22, 22);
+    line-height: 1.6;
+}
+
+form #playlist-submit {
+    padding-top: 25px;
+    border: none;
+    font-weight: bold;
+    font-size: 22px;
+    color: darkblue;
 }
