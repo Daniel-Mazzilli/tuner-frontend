@@ -46,7 +46,7 @@ function SongForm(props) {
   return (
     <div className="Edit">
       {props.children}
-      <form onSubmit={handleSubmit}>
+      <form id="song-form" onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
           id="name"
@@ -71,7 +71,7 @@ function SongForm(props) {
           type="text"
           value={song.album}
           onChange={handleTextChange}
-          placeholder="album song is from"
+          placeholder="album name"
         />
         <label htmlFor="time">length:</label>
         <input
@@ -89,8 +89,7 @@ function SongForm(props) {
           onChange={handleCheckboxChange}
         />
         <br />
-
-        <input type="submit" />
+        <input id="song-submit" type="submit" value="SUBMIT" />
       </form>
     </div>
   );

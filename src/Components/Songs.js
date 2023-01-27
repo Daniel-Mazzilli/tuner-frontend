@@ -27,7 +27,7 @@ function Songs() {
       .put(`${API}/playlists/${id}/songs/${updatedSong.id}`, updatedSong)
       .then(({ data }) => {
         const copySongsArray = [...songs];
-        const indexUpdatedSong = copySongsArray.findIndex(({id}) => {
+        const indexUpdatedSong = copySongsArray.findIndex(({ id }) => {
           return id === updatedSong.id;
         });
         copySongsArray[indexUpdatedSong] = data;
@@ -59,19 +59,24 @@ function Songs() {
     });
   }, [id]);
   return (
-    <section className="Songs">
-      <h2>Songs</h2>
-      <SongForm handleSubmit={handleAdd}>
-        <h3>Add a New Song</h3>
-      </SongForm>
-      {songs.map((song) => (
-        <Song
-          key={song.id}
-          song={song}
-          handleDelete={handleDelete}
-          handleSubmit={handleEdit}
-        />
-      ))}
+    <section>
+      <div id="songs">
+        <div>
+          <h3>Songs</h3>
+          {songs.map((song) => (
+            <Song
+              key={song.id}
+              song={song}
+              handleDelete={handleDelete}
+              handleSubmit={handleEdit}
+            />
+          ))}
+        </div>
+
+        <SongForm handleSubmit={handleAdd}>
+          <h4>Add a New Song</h4>
+        </SongForm>
+      </div>
     </section>
   );
 }

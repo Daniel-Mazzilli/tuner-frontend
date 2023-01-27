@@ -2,7 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { ContextData } from "../Provider/Provider";
 import axios from "axios";
+import { stars } from "../Functions";
 import Songs from "./Songs";
+import star from "../Assets/star.png"
 const API = process.env.REACT_APP_API_URL;
 
 export default function PlaylistDetails() {
@@ -41,10 +43,13 @@ export default function PlaylistDetails() {
 
   return (
     <div id="details">
-      <h3>{title}</h3>
-      <p>Created by {creator}</p>
-      <p>{description}</p>
-      <p>Rating: {rating}</p>
+      <h2>{title}</h2>
+      <p>Created by <span className="bold">{creator}</span></p>
+      <p><span className="italic">{description}</span></p>
+      <p>Rating: {rating &&
+        stars(rating, star).map((e, i) => (
+          <img key={i} src={star} height="18px" />
+        ))}</p>
       <div className="buttons">
         <Link to="/playlists">Back</Link>
         <Link to={`/playlists/${id}/edit`}>Edit</Link>
