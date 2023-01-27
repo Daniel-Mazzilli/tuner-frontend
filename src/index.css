@@ -163,22 +163,16 @@ form #song-submit:hover {
 
 #details h3 {
   color: darkblue;
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 25px;
-}
-
-#details h4 {
-  color: darkblue;
-  text-align: center;
-  font-size: 26px;
+  text-align: left;
+  font-size: 34px;
+  margin-bottom: 20px;
 }
 
 #details p {
-    font-size: 24px;
-    text-align: center;
-    line-height: 1.3;
-    color: rgb(27, 22, 22)
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.3;
+  color: rgb(27, 22, 22);
 }
 
 #songs {
@@ -195,37 +189,54 @@ form #song-submit:hover {
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 .buttons {
-    margin-top: 20px;
-    align-self: center;
-    display: flex;
-    column-gap: 40px;
+  margin: 20px;
+  align-self: center;
+  display: flex;
+  column-gap: 40px;
+  margin-bottom: 40px;
 }
 
-.buttons a, .buttons button {
-    border: 2px solid darkblue;
-    border-radius: 18px;
-    padding: 4px 10px;
-    text-decoration: none;
-    font-size: 20px;
-    color: aliceblue;
-    background-color: rgb(177, 159, 241);
+.buttons a,
+.buttons button {
+  border: 2px solid darkblue;
+  border-radius: 18px;
+  padding: 4px 14px;
+  text-decoration: none;
+  font-size: 20px;
+  color: aliceblue;
+  background-color: rgb(177, 159, 241);
 }
 
-.buttons a:hover, .buttons button:hover {
-    color: darkblue;
-    cursor: pointer;
+.buttons a:hover,
+.buttons button:hover {
+  color: darkblue;
+  cursor: pointer;
 }
 
 #details .Song p {
-    font-size: 20px;
-    text-align: left;
-    line-height: 1.3;
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+#details .Song button {
+  border: 1px solid darkblue;
+  margin: 6px;
+  font-size: 16px;
+  border-radius: 18px;
+  background-color: rgb(177, 159, 241);
+  color: aliceblue;
+  padding: 2px 10px;
+}
+
+#song-buttons {
+  margin-bottom: 20px;
 }

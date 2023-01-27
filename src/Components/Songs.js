@@ -74,7 +74,7 @@ function Songs() {
         </div>
 
         <SongForm handleSubmit={handleAdd}>
-          <h4>Add a New Song</h4>
+          <h3>Add a New Song</h3>
         </SongForm>
       </div>
     </section>
