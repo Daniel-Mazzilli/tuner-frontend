@@ -41,10 +41,10 @@ export default function PlaylistDetails() {
 
   return (
     <div id="details">
-      <h3>Playlist Details id:{id}</h3>
-      <p>
-        {title} by {creator} - {description} - Rating: {rating}
-      </p>
+      <h3>{title}</h3>
+      <p>Created by {creator}</p>
+      <p>{description}</p>
+      <p>Rating: {rating}</p>
       <div className="buttons">
         <Link to="/playlists">Back</Link>
         <Link to={`/playlists/${id}/edit`}>Edit</Link>

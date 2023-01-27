@@ -69,7 +69,7 @@ export default function PlaylistForm() {
         type="text"
         value={playlist.title}
         onChange={handleTextChange}
-        placeholder="title of playlist"
+        placeholder="your playlist title"
         required
       ></input>
       <label htmlFor="creator">Creator:</label>
@@ -78,7 +78,7 @@ export default function PlaylistForm() {
         type="text"
         value={playlist.creator}
         onChange={handleTextChange}
-        placeholder="name of playlist creator"
+        placeholder="your name/username"
         required
       ></input>
       <label htmlFor="description">Description:</label>
@@ -87,9 +87,9 @@ export default function PlaylistForm() {
         type="text"
         value={playlist.description}
         onChange={handleTextChange}
-        placeholder="playlist description"
+        placeholder="add a small description"
       ></textarea>
-      <label htmlFor="rating">Rating:</label>
+      <label htmlFor="rating">Rating(1-5):</label>
       <input
         id="rating"
         type="number"
@@ -99,7 +99,7 @@ export default function PlaylistForm() {
         value={playlist.rating}
         onChange={handleTextChange}
       ></input>
-      <input type="submit" id="playlist-submit" />
+      <input type="submit" id="playlist-submit" value="SUBMIT" />
     </form>
   );
 }

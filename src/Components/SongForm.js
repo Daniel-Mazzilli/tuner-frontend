@@ -53,7 +53,7 @@ function SongForm(props) {
           value={song.name}
           type="text"
           onChange={handleTextChange}
-          placeholder="type song name"
+          placeholder="song title"
           required
         />
         <label htmlFor="artist">Artist:</label>
@@ -62,7 +62,7 @@ function SongForm(props) {
           type="text"
           value={song.artist}
           onChange={handleTextChange}
-          placeholder="type artist name"
+          placeholder="name of artist"
           required
         />
         <label htmlFor="album">Album:</label>
@@ -71,7 +71,7 @@ function SongForm(props) {
           type="text"
           value={song.album}
           onChange={handleTextChange}
-          placeholder="type album name"
+          placeholder="album song is from"
         />
         <label htmlFor="time">length:</label>
         <input
