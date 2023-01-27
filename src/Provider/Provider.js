@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "../Components/Nav";
+import Footer from "../Components/Footer";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -21,6 +22,7 @@ function Provider({ children }) {
     <div>
       <ContextData.Provider value={{ playlists, trigger, setTrigger }}>
         <Nav />
+        <Footer />
         {children}
       </ContextData.Provider>
     </div>

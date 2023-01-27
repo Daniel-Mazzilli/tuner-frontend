@@ -240,3 +240,13 @@ form #song-submit:hover {
 #song-buttons {
   margin-bottom: 20px;
 }
+
+footer {
+    background-color: darkblue;
+    color: aliceblue;
+    text-align: center;
+    padding: 4px;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
